@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Bowler Entry";
+}
+@model Bowler
+
+<h1>Bowler Entry Form</h1>
+
+<div>
+    <form method="post" asp-controller="Home" asp-action="Edit">
+        <div asp-validation-summary="All"></div>
+
+        <!--Form for submitting new bowlers-->
+        <!--I also did the validation in the html inputs as well as the model-->
+        <label asp-for="BowlerID">Bowler: </label>
+        <input asp-for="BowlerID" type="number" readonly required /><br />
+
+
+
+        <label asp-for="BowlerLastName">BowlerLastName:</label>
+        <input asp-for="BowlerLastName" required /><br />
+
+        <label asp-for="BowlerFirstName">BowlerFirstName: </label>
+        <input asp-for="BowlerFirstName" required /><br />
+
+        <label asp-for="BowlerMiddleInit">BowlerMiddleInit: </label>
+        <input asp-for="BowlerMiddleInit" /><br />
+
+        <label asp-for="BowlerAddress">BowlerAddress: </label>
+        <input asp-for="BowlerAddress" required /><br />
+
+        <label asp-for="BowlerCity">BowlerCity: </label>
+        <input asp-for="BowlerCity" required /><br />
+
+        <label asp-for="BowlerState">BowlerState: </label>
+        <input asp-for="BowlerState" required /><br />
+
+        <label asp-for="BowlerZip">BowlerZip: </label>
+        <input asp-for="BowlerZip" required /><br />
+
+        <label asp-for="BowlerPhoneNumber">BowlerPhoneNumber: </label>
+        <input asp-for="BowlerPhoneNumber" required /><br />
+
+        <label asp-for="TeamID">TeamID: </label>
+        <input asp-for="TeamID" type="number" required /><br />
+
+
+        <input type="submit" value="Submit Bowler Entry!" />
+        <a asp-for="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+
+    </form>
+</div>
