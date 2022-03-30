@@ -11,8 +11,8 @@
 
         <!--Form for submitting new bowlers-->
         <!--I also did the validation in the html inputs as well as the model-->
-        <label asp-for="BowlerID">Bowler: </label>
-        <input asp-for="BowlerID" type="number" readonly required /><br />
+        <label asp-for="BowlerID">Bowler ID: </label>
+        <input asp-for="BowlerID" type="number" required readonly/><br />
 
 
 
@@ -32,7 +32,7 @@
         <input asp-for="BowlerCity" required /><br />
 
         <label asp-for="BowlerState">BowlerState: </label>
-        <input asp-for="BowlerState" required /><br />
+        <input asp-for="BowlerState" maxlength="2" required /><br />
 
         <label asp-for="BowlerZip">BowlerZip: </label>
         <input asp-for="BowlerZip" required /><br />

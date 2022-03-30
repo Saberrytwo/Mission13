@@ -43,6 +43,26 @@ namespace Mission13.Controllers
             
         }
         [HttpGet]
+        public IActionResult BowlerEntry()
+        {
+            return View("EditBowler");
+        }
+        [HttpPost]
+        public IActionResult BowlerEntry(Bowler b)
+        {
+            ViewBag.Teams = _repo.Teams.ToList();
+            if (ModelState.IsValid)
+            {
+                _repo.CreateBowler(b);
+
+            }
+            else
+            {
+                return View("EditBowler", b);
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
         public IActionResult Edit(int BowlerID)
         {
             var bowler = _repo.Bowlers.Single(x => x.BowlerID == BowlerID);
@@ -51,15 +71,26 @@ namespace Mission13.Controllers
         [HttpPost]
         public IActionResult Edit(Bowler b)
         {
+            if (ModelState.IsValid)
+            {
+            ViewBag.Teams = _repo.Teams.ToList();
             _repo.UpdateBowler(b);
             var blah = _repo.Bowlers.ToList();
-            return View("Index", blah);
+            return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("EditBowler", b);
+            }
+
         }
+
         public IActionResult Delete(int BowlerID)
         {
+            ViewBag.Teams = _repo.Teams.ToList();
             var bowler = _repo.Bowlers.Single(x => x.BowlerID == BowlerID);
             _repo.DeleteBowler(bowler);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
     }

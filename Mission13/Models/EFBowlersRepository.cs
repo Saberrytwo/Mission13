@@ -32,7 +32,7 @@ namespace Mission13.Models
         public void UpdateBowler (Bowler b)
         {
             _context.Update(b);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
         }
     }
 }

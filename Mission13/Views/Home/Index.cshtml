@@ -5,19 +5,21 @@
 
 <h1>@ViewBag.Teamname</h1>
 
-<a asp-action="Index" asp-controller="Home" asp-route-TeamID="Null">All</a>
+<a asp-action="Index" asp-controller="Home" asp-route-TeamID="Null" class="btn btn-primary">All</a>
 @foreach (var t in ViewBag.Teams)
 {
     @if (t.TeamName == ViewBag.TeamName)
     {
-        <a asp-action="Index" asp-controller="Home" asp-route-TeamID="@t.TeamID" style="background-color: rgb(255,255,0)">@t.TeamName</a>
+        <a asp-action="Index" asp-controller="Home" asp-route-TeamID="@t.TeamID"  class="btn btn-success">@t.TeamName</a>
     }
     else
     {
-        <a asp-action="Index" asp-controller="Home" asp-route-TeamID="@t.TeamID">@t.TeamName</a>
+        <a asp-action="Index" asp-controller="Home" asp-route-TeamID="@t.TeamID" class="btn btn-primary">@t.TeamName</a>
     }
+
     
 }
+<a asp-action="BowlerEntry" asp-controller="Home" class="btn btn-primary">Add Bowler</a>
 <table class="table table-sm table-striped table-bordered">
     <thead>
         <tr>
